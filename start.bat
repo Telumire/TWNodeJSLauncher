@@ -1,4 +1,16 @@
 @ECHO off
+::checks
+:CHECK_NODEJS
+where node > NUL && GOTO :CHECK_TW
+echo NodeJS is not installed.
+echo Go to https://nodejs.org to install Node.JS, then restart this file.
+START https://www.nodejs.org
+PAUSE
+GOTO :EOF
+:CHECK_TW
+where tiddlywiki > NUL && GOTO :INIT
+npm install -g tiddlywiki
+:INIT
 IF NOT "%~1"=="" (
   ::if using shortcut
   set name=%~1
