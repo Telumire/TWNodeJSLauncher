@@ -16,10 +16,13 @@ Feedbacks are welcome !
 * It will seek a free port and serve the wiki on it (meaning you can open as many wiki as you want at the same time)
 * Then the wiki will be open in the default web browser
 * If the tiddler `$__SiteTitle.tid` doesnt exist, the title of the wiki will be set to the name given. To achieve that, title.json is created inside the folder'wiki, you can delete it later
-* A shortcut will be added into the wiki directory, you can use it to launch the wiki. In order for the shortcut to work, you need to keep start.bat in the parent folder
+* Two batch files will be added into the wiki directory : one to start the wiki, the other to make a single file backup. In order for the shortcuts to work, you need to keep start.bat in the parent folder.
 
 # TODO
 
-* Automatically hide the CLI
+* Add support for drag & drop a single file tiddlywiki on the batch to convert it into a node.js tiddlywiki
 * Add support for lazy loading
 * Add support for multi user wiki (Auth)
+* Add support for the rest of the commands : https://tiddlywiki.com/#Commands
+* Automatically hide the CLI
+* Add a GUI
