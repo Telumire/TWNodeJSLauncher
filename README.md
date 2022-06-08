@@ -21,8 +21,21 @@ Feedbacks are welcome !
 # TODO
 
 * Add support for drag & drop a single file tiddlywiki on the batch to convert it into a node.js tiddlywiki
+```
+@echo off
+
+IF %~x1 == .html (
+echo Loading %~n1
+tiddlywiki --load %1 --savewikifolder ./%~n1
+) ELSE (
+echo not a html file
+)
+
+pause
+```
 * Add support for lazy loading
 * Add support for multi user wiki (Auth)
 * Add support for the rest of the commands : https://tiddlywiki.com/#Commands
 * Automatically hide the CLI
 * Add a GUI
+* Add right click menu support (see https://youtu.be/wsZp_PNp60Q)
