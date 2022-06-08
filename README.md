@@ -1,4 +1,4 @@
-# StartTWNodeJS
+# TWNodeJSLauncher
 `start.bat` is a batch file to start and manage tiddlywiki on Node.JS
 
 I dont know how to code in batch, this file was build with a lot of googling, so it can probably be improved. 
