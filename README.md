@@ -1,7 +1,9 @@
 # StartTWNodeJS
 This is a batch file to start and manage tiddlywiki on Node.JS
+I dont know how to code in batch, this file was build with a lot of googling, so it can probably be improved. 
+Feedbacks are welcome !
 
-It will :
+# Features
 
 * Check if Node.JS is installed
 * If not, open https://nodejs.org and close
@@ -14,9 +16,6 @@ It will :
 * Then the wiki will be open in the default web browser
 * If the tiddler `$__SiteTitle.tid` doesnt exist, the title of the wiki will be set to the name given. To achieve that, title.json is created inside the folder'wiki, you can delete it later
 * A shortcut will be added into the wiki directory, you can use it to launch the wiki. In order for the shortcut to work, you need to keep start.bat in the parent folder
-
-I dont know how to code in batch, this file was build with a lot of googling, so it can probably be improved. 
-Feedbacks are welcome !
 
 # TODO
 
