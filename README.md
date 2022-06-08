@@ -4,7 +4,7 @@ This is a batch file to start and manage tiddlywiki on Node.JS
 It will :
 
 * Check if Node.JS is installed
-* If not, open the nodejs website and close
+* If not, open https://nodejs.org and close
 * If Node.JS is installed, check if Tiddlywiki is installed
 * If not, install tiddlywiki globally
 * If start.bat was launched with an argument (e.g : start.bat "My wiki"), it will use the argument as the name of the wiki
