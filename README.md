@@ -17,3 +17,9 @@ It will :
 
 I dont know how to code in batch, this file was build with a lot of googling, so it can probably be improved. 
 Feedbacks are welcome !
+
+# TODO
+
+* Automatically hide the CLI
+* Add support for lazy loading
+* Add support for multi user wiki (Auth)
