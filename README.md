@@ -20,7 +20,7 @@ Feedbacks are welcome !
 
 # TODO
 
-- [x] Add support for drag & drop a single file tiddlywiki on the batch to convert it into a node.js tiddlywiki
+- [x] Add support for drag & drop a single file tiddlywiki on the batch to convert it into a wiki folder
 - [ ] Add support for lazy loading
 - [ ] Add support for multi user wiki (Auth)
 - [ ] Add support for the rest of the commands : https://tiddlywiki.com/#Commands
