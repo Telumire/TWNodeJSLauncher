@@ -24,6 +24,7 @@ If you want to hide the command prompt window from the taskbar, you can use this
 
 - [x] Add support for drag & drop a single file tiddlywiki on the batch to convert it into a wiki folder
 - [x] Add support for lazy loading (v0.0.4)
+- [ ] Add option to set defaults settings (Plugins, UI settings)
 - [ ] Add support for multi user wiki (Auth)
 - [ ] Add support for the rest of the commands : https://tiddlywiki.com/#Commands
 - [ ] Automatically hide the CLI
