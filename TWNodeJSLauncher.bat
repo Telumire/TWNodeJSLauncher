@@ -11,12 +11,19 @@ GOTO :EOF
 where tiddlywiki > NUL && GOTO :INIT
 npm install -g tiddlywiki
 :INIT
-IF NOT "%~1"=="" (
-  ::if using shortcut
-  set name=%~1
+IF "%~x1"==".html" (
+  CALL tiddlywiki --load "%~1" --savewikifolder "./%~n1"
+  echo You are converting a single file tiddlywiki into a wiki folder.
+  echo Dont forget to add the required plugins if you want to run it on Node.JS !
+  PAUSE
+  GOTO :EOF
 ) ELSE (
-  ::ask for the name
-  set /p name=Name of the wiki:
+  IF NOT "%~1"=="" (
+    set name=%~1
+  ) ELSE (
+    ::ask for the name
+    set /p name=Name of the wiki:
+  )
 )
 ::remove quotations
 set name=%name:"=%
@@ -38,7 +45,7 @@ CALL tiddlywiki "%name%" --init server
 ::open the url in the default browser
 START http://localhost:%freePort%
 ::create shortcuts files if missing 
-IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& start.bat "%%%%~nxd" >"%name%/start.bat"
+IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %0 "%%%%~nxd" >"%name%/start.bat"
 IF NOT EXIST "%name%/backup.bat" ECHO tiddlywiki --build index >"%name%/backup.bat"
 ::set title of the wiki if blank
 IF NOT EXIST "%name%/tiddlers/$__SiteTitle.tid" (
