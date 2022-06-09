@@ -1,5 +1,5 @@
 :: Purpose:   Runs a series of commands to run a node JS tiddlywiki.
-:: Version:   0.0.3
+:: Version:   0.0.4
 :: Download:  https://github.com/Telumire/TWNodeJSLauncher/releases
 :: Author:    telumire
 :: Usage:     ##Launch and/or create a tiddlywiki
@@ -12,7 +12,7 @@
 ::              It will create and launch tiddlywiki on a new port
 ::              
 ::            ##Use this bat from the command line
-::              TWNodeJSLauncher.bat "Name of the wiki"
+::              TWNodeJSLauncher "Name of the wiki"
 ::              
 ::            ##Convert a single file tiddlywiki into a wiki folder
 ::              Drag and drop your html on the .bat file
@@ -63,7 +63,8 @@ CALL tiddlywiki "%name%" --init server
 ::open the url in the default browser
 START http://localhost:%freePort%
 ::create shortcuts files if missing 
-IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %0 "%%%%~nxd" >"%name%/start.bat"
+IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %~n0 "%%%%~nxd" >"%name%/start.bat"
+IF NOT EXIST "%name%/start-lazy.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %~n0 "%%%%~nxd" --lazy all >"%name%/start-lazy.bat"
 IF NOT EXIST "%name%/backup.bat" ECHO tiddlywiki --build index >"%name%/backup.bat"
 ::set title of the wiki if blank
 IF NOT EXIST "%name%/tiddlers/$__SiteTitle.tid" (
@@ -71,4 +72,10 @@ IF NOT EXIST "%name%/tiddlers/$__SiteTitle.tid" (
   CALL tiddlywiki "%name%" --load "%name%/title.json"
 )
 ::listen to a free port
+:: If lazy
+IF "%2"=="--lazy" (
+  IF "%3"=="images" CALL tiddlywiki "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-images
+  IF "%3"=="all" CALL tiddlywiki "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-all
+) ELSE (
 CALL tiddlywiki "%name%" --listen port=%freePort%
+)
