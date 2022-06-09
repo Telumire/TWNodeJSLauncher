@@ -1,3 +1,21 @@
+:: Purpose:   Runs a series of commands to run a node JS tiddlywiki.
+:: Version:   0.0.3
+:: Download:  https://github.com/Telumire/TWNodeJSLauncher/releases
+:: Author:    telumire
+:: Usage:     ##Launch and/or create a tiddlywiki
+::              Put this file into the folder of your choice, double click it.
+::              If Node.js is not installed :
+::              - The Node.js website will open
+::              - Follow the instructions to install Node.js
+::              - Restart the .bat
+::              Write the name of the wiki when prompted (use the tab key to autofill the name)
+::              It will create and launch tiddlywiki on a new port
+::              
+::            ##Use this bat from the command line
+::              TWNodeJSLauncher.bat "Name of the wiki"
+::              
+::            ##Convert a single file tiddlywiki into a wiki folder
+::              Drag and drop your html on the .bat file
 @ECHO off
 ::checks
 :CHECK_NODEJS
