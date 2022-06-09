@@ -4,7 +4,7 @@
 I dont know how to code in batch, this file was build with a lot of googling, so it can probably be improved. 
 Feedbacks are welcome !
 
-If you want to hide the command prompt window, you can use this tool : https://github.com/benbuck/rbtray
+If you want to hide the command prompt window from the taskbar, you can use this tool : https://github.com/benbuck/rbtray
 
 # Features
 
