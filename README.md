@@ -6,6 +6,9 @@ Feedbacks are welcome !
 
 If you want to hide the command prompt window from the taskbar, you can use this tool : https://github.com/benbuck/rbtray
 
+# Usage
+Put the .bat in any folder, then double click it and write the name of your wiki. If there is no folder with that name in the current directory, it will create one then launch the wiki in the default browser. It will also create shortcuts in the wiki folder for ease of use.
+
 # Features
 
 * Check if Node.JS is installed
