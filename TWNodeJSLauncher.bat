@@ -1,5 +1,5 @@
 :: Purpose:   Runs a series of commands to run a node JS tiddlywiki.
-:: Version:   0.0.4
+:: Version:   0.0.5
 :: Download:  https://github.com/Telumire/TWNodeJSLauncher/releases
 :: Author:    telumire
 :: Usage:     ##Launch and/or create a tiddlywiki
@@ -12,7 +12,7 @@
 ::              It will create and launch tiddlywiki on a new port
 ::              
 ::            ##Use this bat from the command line
-::              TWNodeJSLauncher "Name of the wiki"
+::              start "Name of the wiki"
 ::              
 ::            ##Convert a single file tiddlywiki into a wiki folder
 ::              Drag and drop your html on the .bat file
@@ -32,7 +32,6 @@ npm install -g tiddlywiki
 IF "%~x1"==".html" (
   CALL tiddlywiki --load "%~1" --savewikifolder "./%~n1"
   echo You are converting a single file tiddlywiki into a wiki folder.
-  echo Dont forget to add the required plugins if you want to run it on Node.JS !
   PAUSE
   GOTO :EOF
 ) ELSE (
@@ -63,8 +62,8 @@ CALL tiddlywiki "%name%" --init server
 ::open the url in the default browser
 START http://localhost:%freePort%
 ::create shortcuts files if missing 
-IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %~n0 "%%%%~nxd" >"%name%/start.bat"
-IF NOT EXIST "%name%/start-lazy.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& %~n0 "%%%%~nxd" --lazy all >"%name%/start-lazy.bat"
+IF NOT EXIST "%name%/start.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& "%~n0" "%%%%~nxd" >"%name%/start.bat"
+IF NOT EXIST "%name%/start-lazy.bat" ECHO for %%%%d in ^(^.^) do cd.. ^& "%~n0" "%%%%~nxd" --lazy all >"%name%/start-lazy.bat"
 IF NOT EXIST "%name%/backup.bat" ECHO tiddlywiki --build index >"%name%/backup.bat"
 ::set title of the wiki if blank
 IF NOT EXIST "%name%/tiddlers/$__SiteTitle.tid" (
@@ -74,8 +73,8 @@ IF NOT EXIST "%name%/tiddlers/$__SiteTitle.tid" (
 ::listen to a free port
 :: If lazy
 IF "%2"=="--lazy" (
-  IF "%3"=="images" CALL tiddlywiki "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-images
-  IF "%3"=="all" CALL tiddlywiki "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-all
+  IF "%3"=="images" CALL tiddlywiki +plugins/tiddlywiki/filesystem +plugins/tiddlywiki/tiddlyweb "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-images
+  IF "%3"=="all" CALL tiddlywiki +plugins/tiddlywiki/filesystem +plugins/tiddlywiki/tiddlyweb "%name%"  --listen port=%freePort% root-tiddler=$:/core/save/lazy-all
 ) ELSE (
-CALL tiddlywiki "%name%" --listen port=%freePort%
+CALL tiddlywiki +plugins/tiddlywiki/filesystem +plugins/tiddlywiki/tiddlyweb "%name%" --listen port=%freePort%
 )
