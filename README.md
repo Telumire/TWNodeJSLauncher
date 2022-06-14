@@ -9,6 +9,8 @@ If you want to hide the command prompt window from the taskbar, you can use this
 # Usage
 Put the .bat in any folder, then double click it and write the name of your wiki. If there is no folder with that name in the current directory, it will create one then launch the wiki in the default browser. It will also create shortcuts in the wiki folder that you can pin to the taskbar or your start menu (right click start.bat, create a shortcut and put it in `C:\ProgramData\Microsoft\Windows\Start Menu` to be able to pin it).
 
+You can convert a single file tiddlywiki to a tiddlywiki folder by simply drag and dropping the file onto the .bat. 
+
 # Features
 
 * Check if Node.JS is installed
