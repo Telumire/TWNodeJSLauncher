@@ -1,5 +1,5 @@
 :: Purpose:   Runs a series of commands to run a node JS tiddlywiki.
-:: Version:   0.0.5
+:: Version:   0.0.6
 :: Download:  https://github.com/Telumire/TWNodeJSLauncher/releases
 :: Author:    telumire
 :: Usage:     ##Launch and/or create a tiddlywiki
@@ -57,8 +57,16 @@ IF "%ERRORLEVEL%" equ "0" (
   GOTO :FOUNDPORT
 )
 :FOUNDPORT
-::launch tiddlywiki server
-CALL tiddlywiki "%name%" --init server
+::if  the folder is empty, initialize wiki
+SET "folder=%name%"
+SET "files="
+FOR /f "delims=" %%f IN ('dir /a-d /b "%folder%"') DO (
+  SET "files=%%f"
+)
+IF "%files%"=="" (
+  CALL tiddlywiki "%name%" --init server
+  ECHO Wiki initialization completed.
+)
 ::open the url in the default browser
 START http://localhost:%freePort%
 ::create shortcuts files if missing 
