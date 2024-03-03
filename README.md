@@ -1,3 +1,8 @@
+# Warning for the macOS launcher
+
+I used chatgpt to generate a macOS version of my .bat script. I do not own a mac so I can't tell if this works or not, use it at your own risks. 
+
+
 # TWNodeJSLauncher
 `TWNodeJSLauncher.bat` is a batch file to start and manage tiddlywiki on Node.JS
 
