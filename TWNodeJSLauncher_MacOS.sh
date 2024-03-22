@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Purpose: Runs a series of commands to run a Node.js TiddlyWiki.
-# Version: 0.0.1
+# Version: 0.0.2 (currently broken)
 # Author: telumire + chatgpt
 # Warning: This script is a translation made by chatgpt of my .bat script for macOS. I do not own a mac so I can't tell if this works or not, use it at your own risks. 
 # Usage: 
@@ -29,7 +29,7 @@ fi
 
 # Initialize variables
 name=""
-startPort=80
+startPort=8000
 freePort=""
 
 # Function to find a free port
