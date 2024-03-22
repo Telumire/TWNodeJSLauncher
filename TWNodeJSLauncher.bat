@@ -1,5 +1,5 @@
 :: Purpose:   Runs a series of commands to run a node JS tiddlywiki.
-:: Version:   0.0.6
+:: Version:   0.0.7
 :: Download:  https://github.com/Telumire/TWNodeJSLauncher/releases
 :: Author:    telumire
 :: Usage:     ##Launch and/or create a tiddlywiki
@@ -46,7 +46,7 @@ IF "%~x1"==".html" (
 set name=%name:"=%
 ECHO %name% will open shortly..
 ::search free port
-set startPort=80
+set startPort=8000
 :SEARCHPORT
 netstat -o -n -a | find "LISTENING" | find ":%startPort% " > NUL
 IF "%ERRORLEVEL%" equ "0" (
